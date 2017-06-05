@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>ActorPage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!--<link href="../userPage.css" rel="stylesheet">-->
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script>
+    console.log("Actor ID: {{ actor.actors_id }}");
+    var getActorId = function () {
+      return {{ actor.actors_id }};
+      };
+  </script>
+<style>
+img{
+height:400px;
+width:300px;
+}
+td{
+padding:20px;
+}
+</style>
+</head>
+
+
+<body background="../static/styles/background.jpg">
+  <div id="header">
+    <nav class="navbar navbar-inverse" style="background-color:black">
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="color:orange">Rotten Tomatoes</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="http://127.0.0.1:8080/">Home</a></li>
+          <li><a href="http://127.0.0.1:8080/UserPage/userPage.html">User Content</a></li>
+          <li><a href="http://127.0.0.1:8080/entertainment/1">Entertainment of the Month</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search here for any Entertainment, actors">
+          </div>
+
+          <button type="button" id="searchButton" class="btn btn-default">Submit</button>
+        </form>
+
+        <ul class="nav navbar-nav navbar-right" id="userCond">
+          <!--to be populated by JS-->
+        </ul>
+      </div>
+
+  </div>
+
+  <br>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="span2" id="photo">
+        <img src={{ actor.photo_link }}  alt="" class="img-rounded">
+      </div>
+
+        <div>
+          
+          {% if 1 %}
+          <h1 style="color: white"> {{ actor.name }} </h1>
+          {% endif %}
+        </div>
+
+      <div class="span4">
+        <h1 style="color:white" id="actorName"></h1>
+      </div>
+
+      <h3 style="color:red">Acted In</h3>
+      <table id="actedIN" style="color:white">
+        <thead>
+          
+        </thead>
+
+        <tbody id="actedInTable">
+          
+        </tbody>
+      </table>
+
+      <script src="../static/js/actorPage.js"></script>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+   
+    <title>ActorPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="userPage.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+
+
+<body background="background.jpg">
+<div id="header">
+    <nav class="navbar navbar-inverse" style="background-color:black">
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="color:orange">Rotten Tomatoes</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="../MainPage/mainPage.html">Home</a></li>
+          <li><a href="../UserPage/userPage.html">User Bonus</a></li>
+          <li><a href="../MoviePage/movie.html">Entertainment of the Month</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search here for any Entertainment, actors">
+          </div>
+
+          <button type="button" id="searchButton" class="btn btn-default">Submit</button>
+        </form>
+
+        <ul class="nav navbar-nav navbar-right" id="userCond">
+          <!--to be populated by JS-->
+        </ul>
+
+      </div>
+
+  </div>
+
+<br>
+<br>
+
+  <div class="container">
+  <div class="row">
+    <div class="span2" id="photo">
+      <!--<img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">-->
+    </div>
+    <div class="span4">
+      <h1 style="color:white" id="actorName"></h1>
+      
+    </div>
+
+    <h3 style="color:white">Acted IN</h3>
+    <table id="actedIN" style="color:white">
+      <thead>
+	<th>Movies</th>
+      </thead>
+      <tbody id="actedInTable">
+      </tbody>
+    </table>
+    <script src="actorPage.js"></script>
+  </div>
+  </div>
+</body>
+</html>

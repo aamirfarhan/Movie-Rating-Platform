@@ -1,0 +1,13 @@
+from flask import *
+from app import db
+from app.entertainment.models import Ent
+
+mod_entertainment = Blueprint('ent', __name__)
+
+@mod_entertainment.route('/entertainments', methods = ['GET'])
+def get_all_entertainments():
+    ents = Ent.query.all()
+
+    return jsonify(success = True, entertainments = [ent.to_dict() for ent in ents])
+
+    

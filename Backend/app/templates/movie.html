@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Individual Movie Page">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="/home/notsudo/Educational Stuff/Major Project ITWS-2/RottenTomatoes_Team-1/bootstrap/docs/icon.ico">-->
+    <link rel="icon" href="../../../bootstrap/docs/icon.ico">
+
+    <title> Movie Page </title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:100,200,300,400,500,700,800,900" rel="stylesheet">-->
+    <link href="../static/styles/movie.css" rel="stylesheet" type="text/css">
+   
+    
+    <!--Custom made for the movie page-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+
+  </head>
+
+  <body background="http://hdwallpaperia.com/wp-content/uploads/2013/10/Black-Background-Design-1024x640.jpg">
+
+    <div id="header">
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:orange">Rotten Tomatoes</a>
+    </div>
+    <ul class="nav navbar-nav">
+          <li class="active"><a href="http://127.0.0.1:8080/">Home</a></li>
+          <li><a href="http://127.0.0.1:8080/UserPage/userPage.html">User Content</a></li>
+          <li><a href="http://127.0.0.1:8080/entertainment/1">Entertainment of the Month</a></li>
+    </ul>
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+    <ul class="nav navbar-nav navbar-right" id="userCond">
+      <!--to be populated by JS-->
+    </ul>
+    
+  </div>
+    </nav>
+    </div>
+
+
+
+    <!--start movie specific custom code-->
+    <br />
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="col-md-4 col-sm-6">
+
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover" id="poster">
+				<img src="{{ movie.poster_link }}" alt="Poster"/>
+                        </div>
+                        
+                        <div class="content">
+                        </div>
+                    </div>
+                    
+                    <div class="back">
+                        <div class="header">
+                            <h5><i>Description</i></h5>
+                            {% if 1 %}
+                            <h5 class="motto" id="descr">{{ movie.description }}</h5>
+                            {% endif %}
+                            <h5><i>Running Time:</i></h5>
+                            {% if 1 %}
+                            <h5 class="motto" id="running_time">{{ movie.running_time }}</h5>
+                            {% endif %}
+                            <h5><i>Release Date:</i></h5>
+                            {% if 1 %}
+                            <h5 class="motto" id="release_date">{{ movie.release_date }}</h5>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <!--card ended-->
+             </div>
+          </div>
+        </div>
+	
+      
+	<div class="col-md-6" id="trailer">
+	</div>
+      </div>
+    </div>
+
+    <div class="container">
+    </div>
+</div>
+
+	<div class="container">
+      <h2 id="overall_rating" class="text-primary"></h2>
+      <h5  style="color:white" id="rating_count"></h5>
+	<hr/>
+
+
+<div class="container">
+<div id = "actors">
+  <table style="color:white">
+    <thead>
+      <th><h2 style="color:aqua">Actors</h2></th>
+    </thead>
+  <tbody id="actorsTable">
+  </tbody>
+  </table>
+</div>
+
+<div id = "quotes">
+  <table>
+    <thead>
+      <th><h2 style="color:red">Quote</h2></th>
+    </thead>
+  <tbody id="quotesTable">
+  </tbody>
+  </table>
+</div>
+
+<div id = "genres">
+  <table>
+    <thead>
+      <th><h2 style="color:orange">Genre</h2></th>
+    </thead>
+  <tbody id="genresTable">
+  </tbody>
+  </table>
+</div>
+</div>
+
+    
+      <hr />
+<!--	  
+      <div>
+        <h2>Running Time:</h2>
+        <p id="running_time"</p>
+      </div>
+    
+      <div>
+        <h2>Release Date</h2>
+        <p id="release_date"></p>
+      </div>-->
+	<div id="orange">
+      <div id = "addReviewDiv">
+	<h2 style="color:orange">Review This!</h2>
+	<form id="addReview">
+	  <label for="rating" style="color:red">Rating: </label>
+
+	  <table style="color:red">
+	    <tr>
+	  <td><input type="radio" name="rating" value="1"></td>
+	  <td><input type="radio" name="rating" value="2"></td>
+	  <td><input type="radio" name="rating" value="3"></td>
+	  <td><input type="radio" name="rating" value="4"></td>
+	  <td><input type="radio" name="rating" value="5"></td>
+	  <td><input type="radio" name="rating" value="6"></td>
+	  <td><input type="radio" name="rating" value="7"></td>
+	  <td><input type="radio" name="rating" value="8"></td>
+	  <td><input type="radio" name="rating" value="9"></td>
+	  <td><input type="radio" name="rating" value="10"></td>
+	    </tr>
+	    <tr>&nbsp
+		<td><b>1</b></td>
+		<td><b>2</b></td>
+		<td><b>3</b></td>
+		<td><b>4</b></td>
+		<td><b>5</b></td>
+		<td><b>6</b></td>
+		<td><b>7</b></td>
+		<td><b>8</b></td>
+		<td><b>9</b></td>
+		<td><b>10</b></td>
+	    </tr>
+	    </table>	  
+<br />
+
+	  <textarea name="reviewbox" placeholder="Write a Review(optional)" rows="4" cols="50"></textarea>
+	  <button type="button" id="addReviewButton">Submit</button>
+	</form>
+      </div>
+      
+      <div class="container">
+        <h2 style="color:orange">Critic's Review:</h2>
+	<table id="critic_review" class = "table table-hover table-striped" style="color:red">
+	  <thead>
+	    <tr>
+	      <th class="col-md-2">Review ID</th>
+	      <th class="col-md-2">Username</th>
+	      <th class="col-md-2">Rating</th>
+	      <th>Review</th>
+	    </tr>
+	  </thead>
+	  <tbody id="critic_review_body">
+	  </tbody>
+	</table>
+      </div>
+
+      <div class="container">
+        <h2 style="color:orange">Audience's Review:</h2>
+	<table id="audience_review" class = "table table-hover table-striped" style="color:red">
+	  <thead>
+	    <tr>
+	      <th class="col-md-2">Review ID</th>
+	      <th class="col-md-2">Username</th>
+	      <th class="col-md-2">Rating</th>
+	      <th>Review</th>
+	    </tr>
+	  </thead>
+	  <tbody id="audience_review_body">
+	  </tbody>
+	</table>
+      </div>
+</div>
+     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      console.log("Entertainment ID: {{ movie.ent_id }}");
+      var getEntId = function()
+      {
+         return {{ movie.ent_id }};
+      };
+    </script>
+    <script src = "../static/js/movie.js"></script>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,86 @@
+* Web Application Description:
+
+* Rotten Tomato (SS)
+
+* Description: 
+  Make a movie reviews platform similar to rotten tomatoes (https://www.rottentomatoes.com/)
+
+* Functionality:
+  A database of films (movies, TV shows, documentaries, etc.) which can be rated and commented upon.
+		
+** Each movie should have a profile which:
+*** Has a cover/poster picture
+*** Trailer
+*** Type/Genre of the film
+*** Cast of the film
+*** General movie information
+*** Ratings and comments about the movie
+*** Movie quotes
+*** Discussion forum
+
+** Home page should list movies / TV shows in the following categories:
+*** Recent releases
+*** Top rated
+
+* User types:
+*** Moderator
+**** Site owner / root user.
+**** Has all rights
+**** Adds and verifies critics
+		
+*** Critic
+**** Has the right to write reviews as a verified member of the site
+		
+*** Audience
+**** Normal user
+
+* Team Members:
+
+** Aamir Farhan
+** Abheet Sharma
+** Nikhil Pinnaparaju
+** Tanmai Khanna
+
+* Files:
+
+|-----+------------------------------+---------------------------------------------------------------------------------------------------------|
+| No. | Name Of File                 | Description of File                                                                                     |
+|-----+------------------------------+---------------------------------------------------------------------------------------------------------|
+|  1. | ER Diagram.png:              | Entity Relationship Diagram for the database.                                                           |
+|  2. | Backend_Routes_Details.org:  | Contains information about all the routes available for API Calls                                       |
+|  3. | Backend (Folder):            | Contains the Flask and Python part of the coding                                                        |
+|  4. | VirtualEnvironment (Folder): | Contains the Virtual Environment                                                                        |
+|  5. | requirements.txt:            | Contains the versions of packages used                                                                  |
+|  6. | FluidUI-flowdiag.png:        | The flow diagram for the frontend made in FluidUI                                                       |
+|  7. | Bootstrap(Folder):           | Contains files for Bootstrap                                                                            |
+|  8. | EntData                      | Holds are data for the database                                                                         |
+|  9. | Frontend                     | Contains all the front end files that have been used                                                    |
+| 10. | .gitignore                   | Tell git what types of files to ignore while pushing so that we don't have unneccasary merge conflicts. |
+| 11. | Documentation_Front_End.org  | Documentation of the front end files                                                                    |
+|     |                              |                                                                                                         |
+|-----+------------------------------+---------------------------------------------------------------------------------------------------------|
+
+
+* To Do
+
+Activate the virtual environment by going into the folder =<path to cloned folder>/RottenTomatoes_Team-1=.
+In order to activate the environment, run =source VirtualEnvironment/bin/activate=. Now run 
+=pip install --user -r requirements.txt=, all requirements should be available by now. Open =127.0.0.1:8080=
+to access the home page and complete access to the web app should be available from here.
+
+* API Calls
+
+All the Routes have been listed in a very precise and organized manner in the Backend_Routes_Details.org file.
+[[./Backend_Routes_Details.org][=Routes=]].
+
+* FrontEnd
+All the Front End Files have been documented in [[./Documentation_Front_End.org][Front End]].
+
+* Grading
+Grading Breakup for Project
+Design/Structure -> 15%
+Working code / features implemented -> 35%
+Documentation -> 20%
+Contribution -> 10%
+Viva -> 20%
+Bonus -> 5%

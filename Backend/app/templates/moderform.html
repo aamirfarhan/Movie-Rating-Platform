@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Moderator">
+    <meta name="author" content="Nikhil Pinnaparaju">
+
+    <link rel="icon" href="../../../bootstrap/docs">
+
+    <title> Moderator Form </title>
+
+    <!--<link href="../../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/styles/moder.css" rel="stylesheet">
+    <style>
+        table,
+        td,
+        th {
+            border: 3px solid #ddd;
+            text-align: left;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th,
+        td {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+
+        <form id="addEntertainment" class="form-Data">
+            <h2 class="form-Data-heading">Add Entertainment Data</h2>
+
+            <!--<select class = "dropdown-menu">-->
+            <select name="ent_type">
+                  <option>Movie</option>
+                  <option>TV Show</option>
+                  <option>Documentary</option>
+                </select>
+
+            <!--<label for="ent_type" class="sr-only">Item Name</label>
+            <input type="text" id="ent_type" class="form-control" placeholder="Entertainment type" required>-->
+
+            <label for="name" class="sr-only">Item Name</label>
+            <input type="text" name="name" id="inputDataName" class="form-control" placeholder="Name" required>
+
+            <label for="release_date" class="sr-only">Release Date</label>
+            <input type="text" name="release_date" id="inputReleaseDate" class="form-control" placeholder="Release Date (YYYY-MM-DD)"
+                required>
+
+            <label for="running_time" class="sr-only">Run Time</label>
+            <input type="number" name="running_time" id="inputRunTime" class="form-control" placeholder="Runtime" required>
+
+            <label for="poster_link" class="sr-only">Input Poster Link</label>
+            <input type="text" name="poster_link" id="inputPosterLink" class="form-control" placeholder="Poster Link" required>
+
+            <label for="description" class="sr-only">description</label>
+            <textarea name="description" class="form-control" id="inputDescr" placeholder="Description" rows="8" cols="200" required></textarea>
+
+            <label for="trailer_link" class="sr-only">Input Trailer Link</label>
+            <input type="text" name="trailer_link" id="inputTrailerLink" class="form-control" placeholder="Trailer Link" required>
+
+            <button id="addEntertainmentButton" class="btn btn-lg btn-primary btn-block" type="button">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <button type="button" id="ShowEntTable" class="btn btn-lg btn-warning">Display Entertainments</button>
+    </div>
+
+    <div id='DisplayEntTable'>
+        <button type="button" id="HideEntTable" class="btn btn-lg btn-warning">Hide Entertainments</button>
+        <table border='1'>
+            <thead>
+                <th>Entertainment ID</th>
+                <th>Poster</th>
+                <th>Entertaintment Name</th>
+                <th>Entertainment Type</th>
+                <th>Description</th>
+                <th>Release Date</th>
+                <th>Trailer Link</th>
+            </thead>
+            <tbody id="EntsTable">
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="login">
+
+        <form class="form-Data" id="deleteEntertainment">
+            <h2 class="form-Data-heading">Delete Entertainment Data</h2>
+
+            <!--<label for="ent_type" class="sr-only">Item Name</label>
+            <input type="text" id="ent_type" class="form-control" placeholder="Entertainment type" required>-->
+
+            <select id="deleteEntsList"></select></br>
+
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="deleteEntertainmentButton">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="login">
+
+        <form id="addActor" class="form-Data">
+            <h2 class="form-Data-heading">Add Actor Data</h2>
+
+            <!--<label for="ent_type" class="sr-only">Item Name</label>
+            <input type="text" id="ent_type" class="form-control" placeholder="Entertainment type" required>-->
+
+            <label for="name" class="sr-only">Name</label>
+            <input type="text" name="name" id="inputDataName" class="form-control" placeholder="Name" required>
+
+            <label for="photo_link" class="sr-only">Input Photo Link</label>
+            <input type="text" name="photo_link" id="inputPhotoLink" class="form-control" placeholder="Photo Link" required>
+
+            <button id="addActorButton" type="button" class="btn btn-lg btn-primary btn-block">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <button id="ShowActorTable" type="button" class="btn btn-lg btn-warning">Show Actors Table</button>
+    </div>
+
+    <div id="DisplayActorTable">
+        <div class="text-center">
+            <button id="HideActorTable" type="button" class="btn btn-lg btn-warning">Hide Actors Table</button>
+        </div>
+        <table border='1'>
+            <thead>
+                <th>Actor ID</th>
+                <th>Actor Name</th>
+                <th>Photo</th>
+            </thead>
+            <tbody id="ActorsTable">
+            </tbody>
+        </table>
+    </div>
+    <div class="login">
+
+        <form id="deleteActor" class="form-Data">
+            <h2 class="form-Data-heading">Delete Actor Data</h2>
+
+            <!--<label for="ent_type" class="sr-only">Item Name</label>
+            <input type="text" id="ent_type" class="form-control" placeholder="Entertainment type" required>-->
+
+            <select id="deleteActorsList"></select></br>
+
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="deleteActorButton">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="login">
+
+        <form id="addActorToEnt" class="form-Data">
+            <h2 class="form-Data-heading">Add an Actor to an Entertainment</h2>
+
+            <select id="addActorsList"></select></br>
+            <select id="addEntsList"></select></br>
+
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="addActorToEntButton">Submit</button>
+        </form>
+    </div>
+
+    <div class="text-center">
+        <button id="ShowActOfEntTable" type="button" class="btn btn-lg btn-warning">Show Actors Of Entertainments Table</button>
+    </div>
+
+    <div id="DisplayActOfEntTable">
+        <div class="text-center">
+            <button id="HideActOfEntTable" type="button" class="btn btn-lg btn-warning">Hide Actors Of Entertainments Table</button>
+        </div>
+        <table border='1'>
+            <thead>
+                <th>Entertaintment ID</th>
+                <th>Actor ID</th>
+            </thead>
+            <tbody id="ActorsOfEntsTable">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="login">
+
+        <form class="form-Data" id="addGenres">
+            <h2 class="form-Data-heading">Add Genre Data</h2>
+
+            <!--<label for="ent_type" class="sr-only">Item Name</label>
+            <input type="text" id="ent_type" class="form-control" placeholder="Entertainment type" required>-->
+
+            <label for="genre" class="sr-only">Name</label>
+            <input type="text" name="genre" id="inputGenre" class="form-control" placeholder="Name" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="button" id="addGenresButton">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <button id="ShowGenreTable" type="button" class="btn btn-lg btn-warning">Show Genres Table</button>
+    </div>
+
+    <div id="DisplayGenreTable">
+        <div class="text-center">
+            <button id="HideGenreTable" type="button" class="btn btn-lg btn-warning">Hide Genres Table</button>
+        </div>
+        <table border='1'>
+            <thead>
+                <th>Genres ID</th>
+                <th>Genre</th>
+            </thead>
+            <tbody id="GenresTable">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="login">
+        <form class="form-Data" id="deleteGenres">
+            <h2 class="form-Data-heading"> Delete Genre </h2>
+            <select id="deleteGenresList"></select></br>
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="deleteGenresButton">Submit</button>
+        </form>
+    </div>
+
+
+    <div class="login">
+
+        <form class="form-Data" id="addGenreToEnt">
+            <h2 class="form-Data-heading">Add a Genre to an Entertainment</h2>
+
+            <select id="addGenresList"></select></br>
+
+            <select id="addEntsList2"></select></br>
+
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="addGenreToEntButton">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <button id="ShowGenreOfEntTable" type="button" class="btn btn-lg btn-warning">Show Genres Of Ent Table</button>
+    </div>
+
+    <div id="DisplayGenreOfEntTable">
+        <div class="text-center">
+            <button id="HideGenreOfEntTable" type="button" class="btn btn-lg btn-warning">Hide Genres Of Ent Table</button>
+        </div>
+
+        <table border='1'>
+            <thead>
+                <th>Entertainment ID</th>
+                <th>Genre ID</th>
+            </thead>
+            <tbody id="GenresOfEntTable">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="login">
+
+        <form class="form-Data" id="addQuoteToEnt">
+            <h2 class="form-Data-heading">Add a Quote to an Entertainment</h2>
+
+            <label for="quote" class="sr-only">Quote</label>
+            <input type="text" name="quote" class="form-control" placeholder="Quote" required>
+
+            <select id="addEntsList3"></select></br>
+
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="addQuoteToEntButton">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <button id="ShowQuoteTable" type="button" class="btn btn-lg btn-warning">Show Quotes Table</button>
+    </div>
+
+    <div id="DisplayQuoteTable">
+        <div class="text-center">
+            <button id="HideQuoteTable" type="button" class="btn btn-lg btn-warning">Hide Quotes Table</button>
+        </div>
+
+        <table border='1'>
+            <thead>
+                <th>Quote ID</th>
+                <th>Quote</th>
+            </thead>
+            <tbody id="QuotesTable">
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="login">
+        <form class="form-Data" id="deleteQuotes">
+            <h2 class="form-Data-heading">Delete a Quote</h2>
+            <select id="deleteQuotesList"></select></br>
+            <button class="btn btn-lg btn-primary btn-danger" type="button" id="deleteQuotesButton">Submit</button>
+        </form>
+
+    </div>
+
+    <div class="text-center">
+        <button id="ShowQuoteOfEntTable" type="button" class="btn btn-lg btn-warning">Show Quotes Of Entertainments Table</button>
+    </div>
+
+    <div id="DisplayQuoteOfEntTable">
+        <div class="text-center">
+            <button id="HideQuoteOfEntTable" type="button" class="btn btn-lg btn-warning">Hide Quotes of Entertainments Table</button>
+        </div>
+
+        <table border='1'>
+            <thead>
+                <th>Entertainment ID</th>
+                <th>Quote ID</th>
+            </thead>
+            <tbody id="QuotesOfEntTable">
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <hr>
+
+
+    <div class="login">
+        <form class="form-Data">
+            <h2 class="form-Data-heading">Users Table</h2>
+        </form>
+
+        <div class="text-center">
+            <button id="ShowUserTable" type="button" class="btn btn-lg btn-warning">Show Users Table</button>
+        </div>
+
+        <div id="DisplayUserTable">
+            <div class="text-center">
+                <button id="HideUserTable" type="button" class="btn btn-lg btn-warning">Hide Users Table</button>
+            </div>
+
+            <table border="1">
+                <thead>
+                    <th>Photo Link</th>
+                    <th>Username</th>
+                    <th>User Type</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date Of Birth</th>
+                </thead>
+                <tbody id="UsersTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="login">
+        <form class="form-Data">
+            <h2 class="form-Data-heading">Critic Requests</h2>
+        </form>
+
+        <div class="text-center">
+            <button id="ShowToBeCriticTable" type="button" class="btn btn-lg btn-warning">Show To Be Critics Table</button>
+        </div>
+
+        <div id="DisplayToBeCriticTable">
+            <div class="text-center">
+                <button id="HideToBeCriticTable" type="button" class="btn btn-lg btn-warning">Hide To Be Critics Table</button>
+            </div>
+
+            <table border="1">
+                <thead>
+                    <th>Username</th>
+                    <th>Verify</th>
+                </thead>
+                <tbody id="ToBeCriticTable">
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../static/js/moder.js"></script>
+</body>
+
+</html>

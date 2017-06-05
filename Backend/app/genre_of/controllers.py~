@@ -1,0 +1,7 @@
+from flask import *
+from app import db
+from app.genre_of.models import Genre_Of
+
+mod_genre_of = Blueprint('genre_of', __name__)
+
+#Add a genre to an entertainment

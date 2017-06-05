@@ -1,0 +1,25 @@
+from flask_sqlalchemy import SQLAlchemy
+from app import db
+
+class Ent(db.Model):
+    __tablename__ = 'ent'
+
+    ent_id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    ent_type = db.Column(db.String(20))
+    name = db.Column(db.String(100))
+
+    def __init__(self, type, name):
+        self.ent_type = type
+        self.name = name
+
+    def to_dict(self):
+        return {
+            'ent_type': self.ent_type,
+            'name': self.name
+        }
+
+    def __repr__(self):
+        return "%s<%d> %s" %(self.ent_type, self.ent_id, self.name)
+
+    
+    

@@ -1,0 +1,36 @@
+var populateActor = function()
+{
+    $.ajax({
+	url: 'http://127.0.0.1:8080/actors',
+	method: 'GET',
+
+	success: function(response){
+	    if(response.success === true){
+
+		var actorName = response.name;
+
+		$('#actorName').html(actorName);
+
+		var photo="";
+		photo += "<img src='"+response.photo_link+ "' alt='Photo'>";	
+			
+		$('#photo').html(photo);
+	    }
+
+	},
+	error: function(response){
+	    alert(response+"error");
+	},
+    });
+};
+
+var populateActedIN = function()
+{
+    $.ajax({
+	url: 'http://127.0.0.1:8080/acted_in',
+	method: 'GET',
+
+	success: function(response){
+	    if(response.success === true){
+
+		var new_html = "";

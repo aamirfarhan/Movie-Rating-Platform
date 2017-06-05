@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Login and Signup Page">
+        <meta name="author" content="Nikhil Pinnaparaju">
+        <link rel="icon" href="../../../bootstrap/docs/icon.ico">
+
+        <title>Login and Register</title>
+
+        <!-- Bootstrap core CSS -->
+        <!--<link href="../../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+        <!-- Custom styles for this template -->
+        <link href="../static/styles/signin.css" rel="stylesheet">
+
+	
+</head>
+
+<body>
+
+        <div id="header">
+                <nav class="navbar navbar-inverse">
+
+                        <div class="container-fluid">
+                                <div class="navbar-header">
+                                        <a class="navbar-brand" href="http://127.0.0.1:8080/" style="color:orange">Rotten Tomatoes</a>
+                                </div>
+
+                                <ul class="nav navbar-nav">
+                                        <li class="active"><a href="http://127.0.0.1:8080/">Home</a></li>
+                                        <li><a href="http://127.0.0.1:8080/UserPage/userPage.html">User Content</a></li>
+                                        <li><a href="http://127.0.0.1:8080/entertainment/1">Entertainment of the Month</a></li>
+                                </ul>
+
+                                <form class="navbar-form navbar-left">
+                                        <div class="form-group">
+                                                <input type="text" id="searchBar" class="form-control" placeholder="Search here for any Entertainment, actors">
+                                        </div>
+
+                                        <button type="button" id="searchButton" class="btn btn-default">Submit</button>
+                                </form>
+
+                                <ul class="nav navbar-nav navbar-right" id="userCond">
+                                        <!--to be populated by JS-->
+                                </ul>
+
+                        </div>
+                </nav>
+        </div>
+
+        <br/><br/>
+        <div class=".main-login main-center">
+
+                <form class="form-signin" id="signInForm">
+                        <h2 class="form-signin-heading">Login</h2>
+
+                        <label for="username" class="sr-only">Username</label>
+                        <div class="input-group">
+
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="UserName" required autofocus>
+                        </div>
+
+                        <label for="password" class="sr-only">Password</label>
+                        <div class="input-group">
+
+                                <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true" style="font-size:20px"></i></span>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+
+                        <div class="checkbox">
+                                <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signInFormButton">Sign in</button>
+                </form>
+
+        </div>
+        <!-- /container -->
+        <br/>
+        <br/>
+        <div class=".main-login main-center">
+
+                <div class="register">
+
+                        <form class="form-register" id="registerForm">
+
+                                <h2 class="form-register-heading">Register</h2>
+                                <br/>
+
+                                <label for="inputFirstName" class="sr-only">First Name</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required>
+                                </div>
+                                <br/>
+
+                                <label for="inputLastName" class="sr-only">Last Name</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" required>
+                                </div>
+                                <br/>
+
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true" style="font-size:13px"></i></span>
+                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                </div>
+                                <br/>
+
+                                <p>Choose User Type</p>
+                                <input type="radio" name="user_type" value="audience"> Audience <br>
+                                <input type="radio" name="user_type" value="critic"> Critic <br>
+
+                                <label for="dob" class="sr-only">DoB</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true" style="font-size:14px"></i></span>
+                                        <input type="date" id="dob" class="form-control" placeholder="Date Of Birth (YYYY-MM-DD)" required>
+					
+                                </div>
+                                <br/>
+
+                                <label for="userName" class="sr-only">User Name</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" id="userName" class="form-control" placeholder="Username" required>
+                                </div>
+                                <br/>
+
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true" style="font-size:20px"></i></span>
+                                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                </div>
+                                <br/>
+
+                                <label for="inputRepassword" class="sr-only">Retype Password</label>
+                                <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-lock fa " aria-hidden="true" style="font-size:20px"></i></span>
+                                        <input type="password" id="inputRepassword" class="form-control" placeholder="Retype Password" required>
+                                </div>
+                                <br/>
+
+                                <button class="btn btn-lg btn-primary btn-block" type="button" id="registerFormButton">Register</button>
+                        </form>
+                </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+        <script src="../static/js/login.js"></script>
+</body>
+
+</html>

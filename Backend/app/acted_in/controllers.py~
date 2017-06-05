@@ -1,0 +1,17 @@
+from flask import *
+from app import db
+from app.actors.models import Acted_In
+
+mod_acted_in = Blueprint('acted_in', __name__)
+
+@mod_acted_in.route('/acted_in', methods = ['POST'])
+def add_actor_to_movie():
+    actors_id = request.args.get('actors_id')
+    ent_id = request.args.get('ent_id')
+
+    actor_in_ent = Acted_In(actors_id, ent_id)
+
+    db.session.add(actor_in_ent)
+    db.session.commit()
+
+    return jsonify(success = True, actor_in_ent = actor_in_ent.to_dict())

@@ -1,0 +1,82 @@
+#+title: Relational Database Plan and Interface Plan
+
+* Introduction
+This =orgmode= file contains the detailed database plan along with a rough overview of the view of the website(tentative).
+
+* Entertainment
+This is an entity which has Movies,TV-Shows,etc. as a part of a =table=.
+
+** Attributes
+Primary Key --> Entertainment_ID (Auto-generated)
+Name (string)
+CoverPicture/PosterLink (string)
+Trailer Link (string)
+Entertainment Type (string)
+Description (string)
+Release Date (Date, NOT NULL)
+Running Time (Integer, Nullable=True)
+
+* Genres (Entity)
+ID --> Primary Key, Auto-generated
+Genre (string, NOT NULL)
+
+* Genre_Of (Relationship)
+ID --> Primary Key, Auto-generated
+Entertainment_ID (Foreign Key -> Entertainment)
+Genre_ID (Foreign Key -> Genres)
+
+* Actors (Entity)
+Actor_ID --> Primary Key, Auto-generated
+Actor_Name (string)
+Photo_link (string)
+* Acted_In (Relationship)
+ID --> Primary Key, Auto-generated
+Entertainment_ID (Foreign Key -> Entertainment)
+Actor_ID (Foreign Key -> Actors)
+
+* Quotes (Entity)
+Quote_ID --> Primary Key, Auto-generated
+Quote (string)
+
+* Quote_Of (Relationship)
+ID --> Primary Key, Auto-generated
+Quote_ID (Foreign Key -> Quotes)
+Entertainment_ID (Foreign Key -> Entertainment)
+
+* Users (Entity)
+UserType (string, NOT NULL) : Critic/Audience/Moderator
+UserName (string, Primary Key)
+Email (string, unique, NOT NULL)
+Name (string, NOT NULL)
+Photo Link (string, Nullable=True)
+DOB (Date, NOT NULL)
+Hashed Pass (string, NOT NULL)
+
+Note: When a person wants to SignUp as a =Critic=, a verification request is sent to =Moderator= and the person is given =Audience= account. Once verified, type changes to =Critic=
+
+* Reviews (Relation with Attributes)
+Review_ID --> Primary Key, Auto-generated
+Rating (Integer or Percentage, NOT NULL)
+Review (string, Nullable= True)
+UserName (Foreign Key -> Users)
+Entertainment_ID (Foreign Key -> Entertainment) 
+ 
+* Webpages (Tentative)
+** Main Page (Home)
+   This the main webpage we reach when we load the website. Consists of several tables, a search bar and some additional functionality.
+** Signup / Login
+   We reach this webpage when we press the login/signup clickable on the main page. This page is where any user can create an account.
+   Upon successfully creating an account we are redirected to a user profile page.
+** User Pages
+*** Audience Member Page
+    For an audience member, the webpage has the basic funcitonality. A profile picture, preferences, favorites, etc.
+*** Critic Page
+    A Critic is a special type of audience member, that gets extra features on their account after approval from the site moderator.
+*** Moderator Page
+    A moderator or a root user is a super-user of the site and has full access. Moderators select critics upon approval.
+    Moderators have a special set of webpages, accessible only to them that have can be use to add critics or add movies/shows, etc.s
+** Movie/TV Show Page
+   Each movie/show has a unique page that tells a user about the movie, i.e, the ratings, reviews, cast, overview of story, etc.
+   From here we will also be able to check out exclusive forum threads and discussions and more info like quotes from the movie.
+** Actor Page
+   Page unique to each user. Gives us some basic information about the actor and his other works.

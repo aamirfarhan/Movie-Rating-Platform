@@ -1,0 +1,412 @@
+#+TITLE: Backend Routes Details
+
+* Introduction
+This file contains all the routes that have been defined in the backend for the API Calls.
+Use this to understand what each route requires as parameters and what it returns
+* Entertainment(Have to Implement Search)
+** '/entertainments'
+*** Method: GET
+Purpose : Retrieve all entertainments from the database
+Parameters : None
+Output : {
+  "success": true,
+  "entertainments": [{..},{..}]
+}
+
+*** Method: POST
+Purpose : Add an entertainment to the database
+Input method: Form
+Form Keys : 'ent_type', 'name', 'release_date', 'running_time', 'poster_link', 'description', 'trailer_link'
+Output : {
+  "success": true,
+  "ent": {..},
+}
+
+** '/entertainments/delete'
+*** Method: POST
+Purpose : Delete an entertainment from the database
+Input Type : Form
+Form Keys : 'ent_id'
+Output : {
+  "success": True
+} OR {
+  "success": False
+}
+
+** '/entertainment'
+*** Method: GET
+Purpose : Get an entertainment by ID
+Input Parameters: 'ent_id'
+Output: {"success": false} OR {"success": true, "ent": {..}}
+
+** '/entertainment/search'
+*** Method: GET
+Purpose : Search for an entertainment or actor by name
+Input Type : Form
+Form Keys : 'name'
+Output : {"success": true, "result": {..}} OR {"success": false, "message": 'Name not found in database'}
+
+** '/entertainment/<id>'
+*** Method: 'GET'
+Renders Movie Page
+* Actors
+** '/actors'
+*** Method: GET
+Purpose : Retrieve all actors from the database
+Parameters : None
+Output : {
+  "success": true,
+  "actors": [{..},{..}]
+}
+*** Method: POST
+Purpose : Add an actor to the database
+Input method: Form
+Form Keys: 'name', 'photo_link'
+Output: {
+  "success": true,
+  "actor":{..}
+}
+** '/actors/delete'
+*** Method : POST
+Purpose : Delete an actor from the database
+Input Type : Form
+Form Keys : 'actors_id'
+Output : {
+  "success": True
+} OR {
+ "success": False
+ }
+* Quotes
+** '/quotes'
+*** Method: GET
+Purpose : Retrieve all quotes from the database
+Parameters : None
+Output : {
+  "success": true,
+  "quotes": [{..},{..}]
+}
+*** Method: POST
+Purpose : Add a quote to the database
+Input method : Form
+Form Keys : 'quote'
+Output : {
+  "success": True,
+  "quote": {..}
+}
+** '/quotes/delete'
+*** Method: POST
+Purpose : Delete a quote from the database
+Input Type : Form
+Form Keys : 'quotes_id'
+Output : {
+  "success": True
+} OR {
+  "success": False
+  }
+* Genres
+** '/genres'
+*** Method: GET
+Purpose : Retrieve all genres from the database
+Parameters : None
+Output : {
+  "success": true,
+  "genres": [{..},{..}]
+}
+*** Method: POST
+Purpose : Add a genre to the database
+Input method : Form
+Form Keys : 'genre'
+Output : {
+  "success": true,
+  "genre": {..}
+}
+** '/genres/delete'
+*** Method: POST
+Purpose : Delete a genre from the database
+Input Type : Form
+Form Keys : 'genres_id'
+Output : {
+  "success": True
+} OR {
+  "success": False
+  }
+* Users
+** '/login'
+*** Method: GET
+Purpose : Check if the user is logged in
+Parameters : None
+Output : {
+  "success": True,
+  "user": {..},
+} OR {
+  "success": False,
+  }
+*** Method: POST
+Purpose : Login the user and add his/her user_id to the current session
+Form Keys: 'username', 'password'
+Output : {
+  "success": True,
+  "user": {..},
+} OR {
+  "success": False,
+  "message": "not sent in the request",
+} OR {
+  "success": False,
+  "message": "Inavlid credentials",
+}
+** '/logout'
+*** Method: POST
+Purpose : Remove user for the current session, i.e. log the user out
+Parameters : None
+Output : {
+  "success": True,
+}
+** '/register'
+*** Method: POST
+Purpose : Register user to the database
+Form Keys : 'username', 'password', 'name', 'date_of_birth', 'email', 'photo_link'
+Output : {
+  "success": True,
+} OR {
+  "success": False,
+  "message": "not sent in the request",
+} OR {
+  "success": False,
+  "message": "This username already exists",
+  }
+** '/updatePhoto'
+*** Method: POST
+Purpose : Update the photo of user
+Input: Form
+Form Keys: 'photo_link'
+Output: {"success": true, "user": {..}} OR {"success": false}
+
+** '/users'
+*** Method: GET
+Purpose : Get all users in the database
+Input Arguments : None
+Output : {
+  "success": true,
+  "users": [{..}{..}]
+}
+
+*** Method: POST
+Purpose : Retrieve user by name
+Input Type : Form
+Form Keys : 'username'
+Output : {
+  "success": true,
+  "user": {..}
+} OR {
+  "success": false,
+  "message": 'Given username is not registered in the database'
+}
+** '/users/user_type'
+*** Method: POST
+Purpose : Change the user type from audience to critic and vice versa
+Input Type : Form
+Form Keys : 'username'
+Output : {
+  "success": true
+} OR {
+  "success": false
+}
+** '/users/make_moder'
+*** Method: POST
+Purpose : Create an admin for the website
+Input Arguments : 'username'
+Output : {
+  "success": true,
+  "user": {..}
+} OR {
+  "success": false
+}
+** '/admin'
+Purpose : Render Moderator Page
+* Acted_In
+** '/acted_in'
+*** Method: POST
+Purpose : Add an Actor to an Entertainment
+Input Arguments : 'actors_id', 'ent_id'
+Output : {
+  "success": true, 
+  "actor_in_ent": {..}
+}
+*** Method: GET
+Purpose : Show the Entertainments an Actor has acted in
+Input Arguments : 'actors_id'
+Output: { 
+  "success": true, 
+  "ents": [{..},{..}] 
+}
+** '/actors_in'
+*** Method: GET
+Purpose : Show actors in an Entertainment
+Input Arguments : 'ent_id'
+Output : {
+  "success": true, 
+  "actors": [{..},{..}] 
+  }
+** '/acted_in/delete'
+*** Method: POST
+Purpose : Remove an Actor from an Entertainment
+Input Arguments : 'actors_id', 'ent_id'
+Output : {
+  "success": true
+} OR {
+  "success": false
+}
+** '/acted_in/data
+*** Method: GET
+Purpose : Retrieve all information present in Acted_in directory
+Input Arguments : None
+Output : {
+  "success": true,
+  "acted_in": [{..}{..}]
+}
+* Quote_Of
+** '/quote_of'
+*** Method: POST
+Purpose : Add a Quote to an Entertainment
+Input Arguments : 'quotes_id', 'ent_id'
+Output : {
+  "success": true,
+  "quote_of_ent": {..}
+  }
+*** Method: GET
+Purpose : Show Quotes of an Entertainment
+Input Arguments : 'quotes_id'
+Output : {
+  "success": true,
+  "quotes_of_ent": [{..},{..}]
+}
+** '/quote_of/delete'
+*** Method: POST
+Purpose : Remove a Quote from an Entertainment
+Input Arguments : 'quotes_id', 'ent_id'
+Output : {
+  "success": true
+} OR {
+  "success": false
+  }
+** '/quote_of/show'
+*** Methods: GET
+Purpose : Retrieve all data from Quotes_of database
+Input Arguments : None
+Output : {
+  "success": true,
+  "quotes_of": [{..}{..}]
+}
+
+* Genre_Of
+** '/genre_of'
+*** Method: POST
+Purpose : Add a Genre to an Entertainment
+Input Arguments : 'genres_id', 'ent_id'
+Output : {
+  "success": true,
+  "genre_of_ent": {..}
+}
+
+*** Method: GET
+Purpose : Show genres of an Entertainment
+Input Arguments : 'genres_id'
+Output : {
+  "success": true,
+  "genres_of_ent": [{..},{..}]
+}
+
+** '/ent_of'
+*** Method: GET
+Purpose : Show entertainments of a Genre
+Input Arguments : 'genres_id'
+Output : {
+  "success": true,
+  "ents_of_genre": [{..},{..}]
+}
+
+** '/genre_of'
+*** Method: GET
+Purpose : Show genres of an entertainment
+Input Arguments : 'ent_id'
+Output : {
+  "success": true,
+  "genres_of_ent": [{..}{..}]
+}
+
+** '/genre_of/delete'
+*** Method: GET
+Purpose : Delete a Genre from an Entertainment
+Input Arguments : 'genres_id', 'ent_id'
+Output : {
+  "success": true
+} OR {
+  "success": false
+}
+** '/genre_of/show'
+*** Method: GET
+Purpose : Retrieve all 'genre_of' data from the database
+Input Arguments : None
+Output : {
+  "success": true,
+  "genre_of_ents": [{..}{..}]
+}
+* Reviews
+** '/reviews'
+*** Method: POST
+Purpose: Review an Entertainment
+Input: Form
+Form Keys: 'username', 'ent_id', 'rating', 'review'
+Output: {"success": true, "review": {..}}
+
+*** Method: GET
+Purpose: Show reviews on a particular entertainment
+Input: Form
+Form Keys: 'ent_id'
+Output: {"success": true, "reviews": [{..},{..}]}
+
+** '/reviews/delete'
+*** Method: POST
+Purpose: Delete a review
+Input: Form
+Form Keys: 'reviews_id'
+Output: {"success": true} OR {"success": false}
+
+** '/reviews_by'
+*** Method: GET
+Purpose: Show reviews by a particular user
+Input: Form
+Form Keys: 'username'
+Output: {"success": true, "reviews": [{..},{..}]}
+
+* To_Be_Critic
+** '/to_be_critic'
+*** Method: GET
+Purpose : Get all critic requests
+Input Arguments : None
+Output : {
+  "success": true,
+  "to_be_critics": [{..}{..}]
+}
+
+*** Method: POST
+Purpose : Add a request to the database
+Input Type : Form
+Form Keys : 'username'
+Output : {
+  "success": true,
+  "to_be_critic": {..}
+}
+
+
+
+** '/to_be_critic/delete'
+*** Method: POST
+Purpose : Remove request from database
+Input Type : Form
+Form Keys : 'username'
+Output : {
+  "success": true
+} OR {
+  "success": false
+}

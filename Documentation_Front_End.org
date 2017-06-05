@@ -1,0 +1,130 @@
+#+TITLE: Front End Documentation File
+#+DATE: 6th April, 2017
+#+AUTHOR: Nikhil Pinnaparaju
+
+* Introduction
+This =orgmode= file contains the explaination of the Web Pages and their layout along with their attached codes.
+
+In order to create the FrontEnd of this Application, Bootstrap was extensively used and no premade templates were directly taken.
+
+* Web Pages
+** Main Page (Home)
+Upon loading on page =127.0.0.1:8080=, we reach the home page of the Web application. We refer to this web page as the =MainPage=.
+On the MainPage, we have several features, such as the a search bar, a carousel, User registration and login, links, tables, etc.
+
+Below the main =nav bar=, we have a =carousel= with a scroll of data. Temporarily I have set the limit on scroll to be 3, however 
+this can be changed to suit site functionality.
+
+Followed the over =carousel=, we have several tables of data, that are populated based on the criteria of the table (most popular,
+grossing, etc.). Below this we some links that give the website a more realistic feel such as the =privacy= and =terms= links 
+along with an added functionality of a link to go back to the top on click.
+
+The User login status is populated by the javascript and it uses API calls to see whether a user is
+logged in or not.
+
+#+NAME navbar
+#+BEGIN_SRC html
+<div id="header">
+    <nav class="navbar navbar-inverse">
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://127.0.0.1:8080/" style="color:orange">Rotten Tomatoes</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="http://127.0.0.1:8080/">Home</a></li>
+          <li><a href="http://127.0.0.1:8080/UserPage/userPage.html">User Content</a></li>
+          <li><a href="http://127.0.0.1:8080/entertainment/1">Entertainment of the Month</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search here for any Entertainment, actors">
+          </div>
+
+          <button type="button" id="searchButton" class="btn btn-default">Submit</button>
+        </form>
+</div>
+#+END_SRC
+
+The =navbar= is the navigation console used for the moving between sites and using many of the features in the website.
+The navbar consists of 3 primary links :-
+
+|----+------------------------------+---------------------------------------------------------------|
+| 1) | =Home=                       | Takes us to the MainPage of the site.                         |
+|----+------------------------------+---------------------------------------------------------------|
+| 2) | =User Content=               | Redirects to the userPage which depends on the user logged in |
+|----+------------------------------+---------------------------------------------------------------|
+| 3) | =Entertainment of the month= | Takes us to a select movie that was chosen by the moderator   |
+|----+------------------------------+---------------------------------------------------------------|
+                                                                                                    
+Along with the links, we have a =search= function that searches the database for the entered query.
+
+Also, at the top left corner of the navbar we have one of two possible choices.
+Either options to =Login= or =SignUp= or an option to =SignOut= along with a Welcome message to the user.
+
+Below the navbar, we have a custom carousel, that has feed of the popular data and features of the website.
+
+Based on the =user_type=, if the =user= is an =admin=, then there is a special button, that can only
+be accessed by appropriate authorization, that allows the admin to go to the moderator page that allows
+him to add data and verify users. Important to know that this feature is not available to =audience=
+and =critic= users.
+
+In the case of regular users, i.e =audience= or =critic= users, the carousel is immedietely followed by
+two tables. The first table is the Movie Table that lets us see what the most popular movies are. 
+Similiarly, we have a TV shows table as well, which are our two primary entertainment types. Next to 
+the tables we have a scroll of data, that has interesting events and information.
+
+Under our tables, we have three rotating carousels, that are populated based on three different criteria
+and stops animation on hovering over it.
+
+The bottom of our page consistently have a bar that has the creators of the web application, copyright
+symbols for a realistic feel and the follow us links are hyperlinked to the official pages of the 
+Rotten Tomatoes, facebook,twitter, youtube and google plus sites respectively.
+
+** User Page
+The user Page, is a user specific site that is dependent on who is logged in to the web application.
+It has the same navbar as the main page.
+
+Below this we now have the User Profile, the contains all the user details to should be available, i.e
+=user_type=, =name=, =email=, etc. However, fields like =password= will not be visible on the user page
+for privacy reasons. The user can change his/her profile picture by using the interface given below.
+
+All reviews and ratings from the user are given in the user page and can be seen. These can also be
+deleted if the user sees it fit to do so.
+
+** Movie Page
+Similar to the user page, the movie page also has a =navbar=. Below our navbar, we have an =entertainment
+card=, which =onhover=, displays the entertainment =description=, =running time= and =release date=.
+
+Next to this we have the =trailer= of our movie, embedded from Youtube. Following this, we have the 
+list of =actors= in this movie, =quotes= and the =genres= affiliated to this data.
+The actors are hyperlinked to the correct actor pages and are take us there onclick.
+
+Now, below this we have the reviews list that has all the reviews that have been given to this data, along
+with their respective rating, =user_type= of reviewer and the =username=.
+
+** Moderator Form
+This is a set of form to which access has only been given to a user of type =admin=.
+This gives the admin a direct access to our database to which they can add/delete entertainments, actors, genres, quotes, etc.
+They can also add actors to ents, genres to ents, etc.
+
+When a user applies to be of type =critic=, a request is sent to the moderator. These requests are shown in this page.
+The admin can verify these users to be critics here.
+
+There are hideable tables on this page which make this page compressed and manageable with a large amount of data.
+
+** Actor Page
+This page is has the information relevant to an =actor=. This page had the =name= of the actor
+along with the movies this actor has taken part in.
+The movie images are hyperlinked to the respective movie pages.
+
+** Login/Signup Page
+This page is the one used by a user to =Sign Up= or to =Login=. Allows the users to register and make accounts to the
+web application.
+
+You need to register with the details.
+You can pick the user type : 'critic' or 'audience'.
+When you apply to be a critic, we give you an audience type account.
+Once the moderator approves you, your user type becomes a critic.

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Starting Page">
+  <meta name="author" content="Nikhil Pinnaparaju">
+
+  <link rel="icon" href="../../../bootstrap/docs/icon.ico">
+  <title>Main Page for Rotten Tomatoes</title>
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <!--Bootstrap core css-->
+
+  <link href="../static/styles/mainPage.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <div id="header">
+    <nav class="navbar navbar-inverse">
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://127.0.0.1:8080/" style="color:orange">Rotten Tomatoes</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="http://127.0.0.1:8080/">Home</a></li>
+          <li><a href="http://127.0.0.1:8080/UserPage/userPage.html">User Content</a></li>
+          <li><a href="http://127.0.0.1:8080/entertainment/1">Entertainment of the Month</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search here for any Entertainment, actors">
+          </div>
+
+          <button type="button" id="searchButton" class="btn btn-default">Submit</button>
+        </form>
+
+        <ul class="nav navbar-nav navbar-right" id="userCond">
+          <!--to be populated by JS-->
+        </ul>
+
+      </div>
+
+  </div>
+
+  <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#bs-carousel" data-slide-to="1"></li>
+      <li data-target="#bs-carousel" data-slide-to="2"></li>
+      <li data-target="#bs-carousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item slides active">
+        <div class="slide-1"></div>
+        <div class="hero">
+          <hgroup>
+            <h1>Watch.Review.Rate.</h1>
+            <h2>At Rotten Tomatoes</h2>
+          </hgroup>
+          <a href="http://127.0.0.1:8080/UserPage/userPage.html" style="color:red">
+            <button class="btn btn-hero btn-lg" role="button">See all features</button>
+          </a>
+          </li>
+        </div>
+      </div>
+      <div class="item slides">
+        <div class="slide-2"></div>
+        <div class="hero">
+          <hgroup>
+            <h1>What's Hot</h1>
+            <h2>Game of Thrones S7. Releasing on <br> July 16th 2017</h2>
+          </hgroup>
+          <a href="https://www.youtube.com/watch?v=JxWfvtnHtS0" target="_blank"><button class="btn btn-hero btn-lg" role="button">Watch Trailer</button></a>
+        </div>
+      </div>
+      <div class="item slides">
+        <div class="slide-3"></div>
+        <div class="hero">
+          <hgroup>
+            <h1>Buy Tickets</h1>
+            <h2>Find nearby happenings</h2>
+          </hgroup>
+          <a href="http://www.bookmyshow.com">
+            <button class="btn btn-hero btn-lg" role="button">See all features</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-4"></div>
+        <div class="hero">
+          <hgroup>
+            <h1>Movie of the Month</h1>
+            <h2>Zindagi Na Milegi Dobara</h2>
+          </hgroup>
+          <a href="http://127.0.0.1:8080/entertainment/1">
+            <button class="btn btn-hero btn-lg" role="button">See all features</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+
+      <br><br>
+      <div id="moderform">
+      </div>
+
+      <div class="col col-md-7">
+        <h2 class="sub-header">Movie Ratings</h2>
+        <div class="table-responsive">
+          
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Running Time(mins.)</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+
+            <tbody id="Table1">
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="sub-header">TV Show Ratings</h2>
+        <div class="table-responsive">
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Running Time</th>
+                <th>Rating</th>
+
+              </tr>
+            </thead>
+            <tbody id="Table2">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-5 row margin-left">
+        <div class="panel panel-primary row" style="border-radius: 0px;border:none; box-shadow:0 8px 6px -7px #423e3e">
+          <div class="panel-heading" style="background-color:#06376d;border-radius:0px; padding:6px; font-size:22px;font-family:Monotype Corsiva">
+            <center>News and Events</center>
+          </div>
+          <div class="panel-body" style="font-size:medium;text-align:justify;line-height: 30px;height:500px;overflow:hidden;">
+            <marquee direction="up" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" style="height:550px">
+
+              <div id="ContentPlaceHolder1_ListView1_itemPlaceholderContainer" style="font-family: 'Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;">
+
+
+                <ul type="disc" style= "border-bottom: 1px dotted #0b263e; display:inline-block; margin:0px auto; color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_0">Joining the already star-studded 2017 Billboard Latin Music Awards lineup, Hollywood star Vin Diesel, Luis Fonsi, Daddy Yankee, J Balvin and more are set to perform on April 27.</span>
+
+                  </li>
+                  <br>
+                </ul>
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_1">Joining Bollywood actresses like Aishwarya Rai Bachchan, Sonam Kapoor and Katrina Kaif, who have formerly endorsed the brand, Deepika Padukone recently became the new global brand ambassador for the French cosmetic brand - L'Oréal Paris.</span>
+
+                  </li>
+                  <br>
+                </ul>
+
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_2">Actor Dolph Lundgren has joined Jason Momoa in Warner Bros' standalone film "Aquaman".</span>
+
+                  </li>
+                  <br>
+                </ul>
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_3">Filmmaker Christopher Nolan has revealed that singer Harry Styles bagged the role in his upcoming war-drama by beating "thousands" of actors.</span>
+
+                  </li>
+                  <br>
+                </ul>
+
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_4">Actor Jude Law has been roped in to essay the young Albus Dumbledore in sequel of 'Fantastic Beasts And Where to Find Them'.<br/></span>
+
+                  </li>
+                  <br>
+                </ul>
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_5">Hollywood star Will Smith has chopped off his son Jaden Smith's blonde hued dreadlocks for his upcoming film 'Life In A Year'  </span>
+
+                  </li>
+                  <br>
+                </ul>
+
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_6">Actor-producer Tom Cruise is seen swinging back and forth in the air using a harness and crashing his car into a tree in the videos shot during the filming of the upcoming movie 'Mission: Impossible 6 </span>
+
+                  </li>
+                  <br>
+                </ul>
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_7">Supermodel Gigi Hadid is all set to visit India as part of her global #TogetherTour to celebrate her Spring 2017 TommyXGigi collaborative collection</span>
+
+                  </li>
+                  <br>
+                </ul>
+
+
+                <ul type="disc" style="border-bottom: 1px dotted #0b263e; display:inline-block;margin:0px auto;color:#474747; font-family:Calibri; text-align:justify;font-size:20px;font-size:15px">
+                  <li>
+
+
+
+                    <span id="ContentPlaceHolder1_ListView1_discriptionLabel_8">Kit Harington says that he does not care whether his character Jon Snow is actually found out to be the "prince that was promised", as per one of the popular fan theories for "Game of Thrones"   </span>
+
+                  </li>
+                  <br>
+                </ul>
+
+
+
+
+
+              </div>
+              <div>
+              </div>
+
+            </marquee>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="row">
+
+
+    <br><br>
+
+    <div class="col-md-4" align="right">
+      <h3>Top Ratings</h3>
+      <div class="container">
+        <div id="carousel">
+         <figure><a href="http://127.0.0.1:8080/entertainment/5"><img src="/static/pictures/rsz_znmd.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/14"><img src="/static/pictures/rsz_walkingdead.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/11"><img src="/static/pictures/rsz_sherlock.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/12"><img src="/static/pictures/rsz_got.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/13"><img src="/static/pictures/rsz_friends.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/2"><img src="/static/pictures/rsz_pulpfiction.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/3"><img src="/static/pictures/rsz_fightclub.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/4"><img src="/static/pictures/rsz_3idiots.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/1"><img src="/static/pictures/rsz_godfather.jpg" alt=""></a></figure>
+	</div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4" align="right">
+      <h3>Recent Releases</h3>
+      <div class="container">
+        <div id="carousel">
+          <figure><a href="http://127.0.0.1:8080/entertainment/5"><img src="/static/pictures/rsz_znmd.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/14"><img src="/static/pictures/rsz_walkingdead.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/11"><img src="/static/pictures/rsz_sherlock.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/12"><img src="/static/pictures/rsz_got.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/13"><img src="/static/pictures/rsz_friends.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/2"><img src="/static/pictures/rsz_pulpfiction.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/3"><img src="/static/pictures/rsz_fightclub.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/4"><img src="/static/pictures/rsz_3idiots.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/1"><img src="/static/pictures/rsz_godfather.jpg" alt=""></a></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4" align="right">
+      <h3>Upcoming</h3>
+      <div class="container">
+        <div id="carousel">
+          <figure><a href="http://127.0.0.1:8080/entertainment/5"><img src="/static/pictures/rsz_znmd.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/14"><img src="/static/pictures/rsz_walkingdead.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/11"><img src="/static/pictures/rsz_sherlock.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/12"><img src="/static/pictures/rsz_got.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/13"><img src="/static/pictures/rsz_friends.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/2"><img src="/static/pictures/rsz_pulpfiction.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/3"><img src="/static/pictures/rsz_fightclub.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/4"><img src="/static/pictures/rsz_3idiots.jpg" alt=""></a></figure>
+          <figure><a href="http://127.0.0.1:8080/entertainment/1"><img src="/static/pictures/rsz_godfather.jpg" alt=""></a></figure>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <br> <br><br><br> <br>
+  <!-- FOOTER -->
+
+  <div id="footer">
+
+    <div class="container-fluid top_bar">
+
+      <div class="row">
+        <div class="col-sm-6" style="font-size:20px; color:#fff;">
+          &copy; Rotten Tomatoes by Aamir, Nikhil, Tanmai and Abheet &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+        </div>
+        <div class="col-sm-5" style="font-size:20px; color:#fff;">
+          Follow Us &nbsp
+          <a target="_blank" href="https://www.facebook.com/rottentomatoes/?fref=ts" class="social_icons"> <i class="fa fa-facebook" style="font-size:25px; color:#fff;"></i></a>
+          <a target="_blank" href="https://twitter.com/RottenTomatoes?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="social_icons">
+            <i class="fa fa-twitter" style="font-size:25px; color:#fff;"></i></a>
+          <a target="_blank" href="https://www.youtube.com/user/rottentomatoes" class="social_icons"> <i class="fa fa-youtube-play" style="font-size:25px; color:#fff;"></i></a>
+          <a target="_blank" href="https://plus.google.com/+RottenTomatoes" class="social_icons"> <i class="fa fa-google-plus" style="font-size:25px; color:#fff;"></i></a>
+        </div>
+        <div class="col-sm-1" style="font-size:20px; color:#fff;">
+          <a href="#">Back to top</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="../static/js/mainPage.js"></script>
+
+</body>
+
+</html>

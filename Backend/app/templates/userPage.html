@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+   
+    <title>UserPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/../static/styles/userPage.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" 
+integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+      
+  <div id="header">
+    <nav class="navbar navbar-inverse" style="background-color:black">
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="color:orange">Rotten Tomatoes</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="http://127.0.0.1:8080/">Home</a></li>
+          <li><a href="http://127.0.0.1:8080/UserPage/userPage.html">User Content</a></li>
+          <li><a href="http://127.0.0.1:8080/entertainment/1">Entertainment of the Month</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search here for any Entertainment, actors">
+          </div>
+
+          <button type="button" id="searchButton" class="btn btn-default">Submit</button>
+        </form>
+
+        <ul class="nav navbar-nav navbar-right" id="userCond">
+          <!--to be populated by JS-->
+        </ul>
+
+      </div>
+
+  </div>
+      
+<br>
+<br>
+<br>
+
+
+<section>
+
+<div class="container" style="margin-top: 20px;">
+<div class="profile-head">
+<div class="col-md- col-sm-4 col-xs-12">
+<div id="photo">
+<!--<img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif" class="img-responsive" />-->
+</div>
+<h6 id="name">Name</h6>
+</div>
+
+
+<div class="col-md-5 col-sm-5 col-xs-12">
+<h5 id="username">UserName</h5>
+<p id="usertype"> UserType</p>
+<ul>
+<li> &nbsp<span class="glyphicon glyphicon-calendar" id="dob"></span> &nbsp</li>
+<!--<li><span class="glyphicon glyphicon-map-marker"></span>Country</li>
+<li><span class="glyphicon glyphicon-phone"></span> Contact</li>-->
+<li> &nbsp<span class="glyphicon glyphicon-envelope" id="email"></span> &nbsp</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+</div>
+</div>
+
+
+<div id="sticky" class="container">
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-menu" role="tablist">
+     <li><a href="#change" role="tab" data-toggle="tab">
+          <i class="fa fa-key"></i> Edit Profile Picture
+          </a>
+      </li>
+	<li> <button id="sendCriticRequest">Send Critic Request</button>
+	</li>
+    </ul><!--nav-tabs close-->
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+    <div class="tab-pane fade active in" id="profile">
+    <div class="container">
+<div class="col-sm-11" style="float:left;">
+
+</div><!--col-sm-12 close-->
+<br clear="all" />
+
+
+<div class="col-md-12">
+
+<div class="table-responsive responsiv-table">
+  <h3>Reviews</h3>
+  <table id="reviews" class = "table table-hover table-striped">
+    <thead>
+      <tr>
+	<th class="col-md-2">Delete</th>
+	<th class="col-md-2">Entertainment</th>
+	<th class="col-md-2">Rating</th>
+	<th>Review</th>
+      </tr>
+    </thead>
+    <tbody id="reviews_body">
+    </tbody>
+  </table>
+</div>
+</div>
+
+</div>
+
+
+
+
+</div>
+</div>
+      
+      
+<div class="tab-pane fade" id="change">
+<div class="container fom-main">
+<div class="row">
+<div class="col-sm-12">
+<h2 class="register">Upload Your Photo</h2>
+</div><!--col-sm-12 close-->
+
+</div><!--row close-->
+<br />
+<div class="row">
+
+<form class="form-horizontal main_form text-left" action=" " method="post"  id="contact_form">
+<fieldset>
+
+
+<!--<div class="form-group col-md-12">
+  <label class="col-md-10 control-label">Full Name</label>  
+  <div class="col-md-12 inputGroupContainer">
+  <div class="input-group">
+  <input  name="first_name" placeholder="Full Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Text input
+       <div class="form-group col-md-12">
+  <label class="col-md-10 control-label">E-Mail</label>  
+    <div class="col-md-12 inputGroupContainer">
+    <div class="input-group">
+  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input
+       
+<div class="form-group col-md-12">
+  <label class="col-md-10 control-label">Phone #</label>  
+    <div class="col-md-12 inputGroupContainer">
+    <div class="input-group">
+  <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+    </div>
+  </div>
+</div>-->
+
+
+
+
+<!-- upload profile picture -->
+<div class="col-md-12 text-left">
+<div class="upload-picture" id="photo_link">
+<input type="text" style="color:black" placeholder="Enter Photo Link" id="photo_link_input">
+
+</div><!--uplod-picture close-->
+</div><!--col-md-12 close-->
+<!-- Button -->
+<div class="form-group col-md-10">
+  <div class="col-md-6">
+    <button type="button" id="updatePhoto" class="btn btn-warning submit-button" >Save</button>
+    <input type="button" value="Cancel" class="btn btn-warning submit-button" onclick="window.location.reload()">
+
+  </div>
+</div>
+</fieldset>
+</form>
+</div><!--row close-->
+</div><!--container close -->          
+</div><!--tab-pane close-->
+</div><!--tab-content close-->
+</div><!--container close-->
+
+</section><!--section close-->
+
+<script src="/../static/js/userPage.js"></script>
+
+</body>
+</html>
